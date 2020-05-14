@@ -9,21 +9,36 @@ html {
 }
 
 body {
-    background-color: #2C2141;
+    /* background-color: #2C2141; */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
+    background-image: repeating-linear-gradient(45deg, rgba(184, 184, 184, 0.219), rgba(151, 151, 151, 0.144) 10px, rgba(189, 189, 189, 0.089) 10px, rgba(211, 209, 209, 0.445) 20px);
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%),
+        linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
+        linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+    filter: saturate(8);
 }
 
 .main {
     width: 624px;
-    background-color: #F8F8F8;
+    background-color: rgba(248, 248, 248, 0.822);
     border-radius: 16px;
     margin: 16px;
     padding: 32px;
 }
+
+
 
 .person {
     display: flex;
@@ -46,15 +61,18 @@ body {
 .person__name {
     font-size: 36px;
     margin: 0;
-    font-weight: normal;
+    font-weight: bolder;
     line-height: 1;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .person__position {
     font-size: 18px;
     font-style: italic;
     color: #554455;
-    margin: 0;
+    margin-top: 5px;
 }
 
 .person__description {
@@ -77,6 +95,10 @@ body {
     text-decoration: none;
 }
 
+.person__link--special {
+    font-weight: bold;
+}
+
 
 @media (max-width: 420px) {
     .main {
@@ -85,15 +107,29 @@ body {
 
     .person {
         display: initial;
-        text-align: center;
     }
 
     .person__picture {
         margin: initial;
+        margin-top: -30px;
         margin-bottom: 20px;
+
     }
 
     .person__name {
         margin-bottom: 20px;
+    }
+
+    .person__position span {
+        display: block;
+    }
+
+    .person__description--mobile a {
+        display: block;
+        margin-top: 5px;
+    }
+
+    .punctuationMarks {
+        display: none;
     }
 }
